@@ -80,7 +80,8 @@ module.exports = class CartService {
   async checkout(cartId, userId, paymentInfo) {
     try {
 
-      const stripe = require('stripe')('sk_test_FOY6txFJqPQvJJQxJ8jpeLYQ');
+      require("dotenv").config();
+      const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
       // Load cart items
       const cartItems = await CartItemModel.find(cartId);
