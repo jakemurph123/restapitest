@@ -25,4 +25,7 @@ module.exports = async (app) => {
   
     return res.status(status).send({ message });
   });
+
+  app.get('/test', (req, res) => res.send('Server is running!'));
+
 }
